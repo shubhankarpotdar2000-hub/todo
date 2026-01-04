@@ -24,10 +24,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    MatDialogModule
-    
-   
-    
+    MatDialogModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
