@@ -1,0 +1,86 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="font-wainght-bold text-center bg-warning">
+                {{isInEdit?"updateStudent":"addStudent"}}
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+        <label for="fname">fname</label>
+        <input type="text" class="form-control" id="fname" #fname>
+
+        <label for="lname">lname</label>
+        <input type="text" class="form-control" id="lname" #lname>
+
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" #email>
+
+        <label for="contact">contact</label>
+        <input type="text" class="form-control" id="contact" #contact>
+
+       
+
+        <button
+        (click)="onStdAdd()"
+        class="button-block m-4"
+         mat-raised-button color="primary" *ngIf="!isInEdit">Add student</button>
+
+          <button (click)="onUpdate()" class="button-block m-4"
+         mat-raised-button color="accent" *ngIf="isInEdit">update</button>
+
+        </div>
+
+
+        <div class="col-md-7">
+            <table class="table table-responsive" *ngIf="stdArr.length>0; else noMsg">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>full name</th>
+                        <th>email</th>
+                        <th>contact</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let std of stdArr; let i = index; ">
+                    <tr>
+                        <td>{{i+1}}</td>
+                        <td>{{std.fname}} {{std.lname}}</td>
+                        
+                        <td>{{std.email}}</td>
+                        <td>{{std.contact}}</td>
+                        <td>{{std.stdId}}</td>
+                        <td>
+                           
+                            <button
+                            (click)="onEdit(std)"
+                            mat-mini-fab color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+
+                        </td>
+                        <td>
+                            
+                             <button
+                             (click)="onRemove(std.stdId)"
+                             mat-mini-fab color="warn">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+
+
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <ng-template #noMsg>
+            <p class="alert alert-warning text-center mt-4">No Data Found!!!</p>
+            </ng-template>
+        </div>
+    </div>
+</div>
