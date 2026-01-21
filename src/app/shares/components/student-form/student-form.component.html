@@ -1,0 +1,64 @@
+
+<div class="form">
+    <div class="form-group">
+      <form #studenttestform="ngForm" (ngSubmit)="onaddstd()">
+        <label for="fname" >fname<sup>*</sup></label>
+        <input type="text" class="form-control"
+        required
+        ngModel
+        name="fname"
+        #fname="ngModel"
+        >
+        <strong class="text-danger" *ngIf="fname.touched && fname.hasError('required')">
+            fname is a required field.... 
+        </strong>
+
+
+         <label for="lname" >lname<sup>*</sup></label>
+        <input type="text" class="form-control"
+        required
+        ngModel
+        name="lname"
+        #lname="ngModel"
+        >
+        <strong class="text-danger" *ngIf="lname.touched && lname.hasError('required')">
+            lname is a required field.... 
+        </strong>
+
+         <label for="email" >email<sup>*</sup></label>
+        <input type="text" class="form-control"
+        required
+        ngModel
+        name="email"
+        #email="ngModel"
+        >
+        <strong class="text-danger" *ngIf="email.touched && email.hasError('required')">
+            email is a required field.... 
+        </strong>
+
+         <label for="contact" >contact<sup>*</sup></label>
+        <input type="text" class="form-control"
+        required
+        ngModel
+        name="contact"
+        #contact="ngModel"
+        >
+        <strong class="text-danger" *ngIf="contact.touched && contact.hasError('required')">
+            contact is a required field.... 
+        </strong>
+
+        <div>
+            <button *ngIf="!isinEditmode"
+            mat-raised-button color="primary" class="w-100">
+                Add students
+            </button>
+            <button
+            (click)="updatestd()"
+            *ngIf="isinEditmode"
+            mat-raised-button color="warn" class="w-100" type="button">
+                Update students
+            </button>
+        </div>
+      </form>
+    </div>
+</div>

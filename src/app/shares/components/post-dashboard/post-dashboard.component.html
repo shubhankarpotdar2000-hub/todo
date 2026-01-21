@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="offset-4 col-md-4">
+            <app-post-form
+            (emitaddpost)="getaddpost($event)"
+            [EditInfo]="Editid"
+            (emitupdatecard)="getUpdatgeid($event)"
+            ></app-post-form>
+        </div>
+    </div>
+    <div class="row">
+        <app-post-list
+        [postInfo]="postdata"
+        (emitremovecard)="getremovepost($event)"
+        (emiteditId)="getemitid($event)"
+        ></app-post-list>
+    </div>
+</div>

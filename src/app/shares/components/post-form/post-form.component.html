@@ -1,0 +1,44 @@
+
+<form #postForm="ngForm" class="mt-4" (ngSubmit)="onaddpost()">
+<div class="form-group">
+    <label for="title">title<sup>*</sup></label>
+    <input type="text" class="form-control"
+    required
+    ngModel
+    name="title"
+    #title="ngModel"
+    >
+    <strong class="text-danger" *ngif="title.touched && title.hasError('required')">
+        title is required field.... 
+    </strong>
+
+     <label for="body">body<sup>*</sup></label>
+    <input type="text" class="form-control"
+    required
+    ngModel
+    name="body"
+    #body="ngModel"
+    >
+    <strong class="text-danger" *ngif="body.touched && body.hasError('required')">
+        body is required field.... 
+    </strong>
+
+    <div>
+        <button *ngIf="!isInEditMode"
+            
+        mat-raised-button color="primary" class="w-100">
+            Add postcards
+        </button>
+        <button 
+        (click)="updatecard()"
+        *ngIf="isInEditMode"
+         mat-raised-button color="accent" class="w-100" type="button">
+            Update postcards
+        </button>
+    </div>
+
+    
+</div>
+
+
+</form>

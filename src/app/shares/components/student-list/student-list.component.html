@@ -1,0 +1,37 @@
+<div class="table table-bordered">
+    <thead>
+        <th>sr.no</th>
+        <th>fullName</th>
+        <th>email</th>
+        <th>contact</th>
+        <th>edit</th>
+        <th>remove</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let std of stdInfo; let i = index;">
+            <td>{{i + 1}}</td>
+            <td>{{std.fname}}{{std.lname}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.contact}}</td>
+            <td>
+                <button
+                (click)="onEdit(std)"
+                mat-mini-fab color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                
+            </td>
+            <td>
+                <button
+                (click)="onremove(std)"
+                mat-mini-fab color="warn">
+                     <mat-icon>
+                        delete
+                     </mat-icon>
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+</div>

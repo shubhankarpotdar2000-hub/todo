@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <app-student-form
+            (emitaddstd)="getaddstd($event)"
+            [editinfo]="EditID"
+            (emitupdatestd)="getupdatestd($event)"
+          
+            ></app-student-form>
+        </div>
+        <div class="col-md-8">
+            <app-student-list
+            [stdInfo]="stdArr"
+            (emitremoveid)="getremovestd($event)"
+            (emiteditId)="geteditid($event)"
+            ></app-student-list>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<ng-container *ngIf="postInfo.length > 0 ; else nopost">
+
+   <div class="row">
+    <div class="col-4" *ngFor="let post of postInfo">
+         <div class="card h-100">
+        <div class="card-header">
+                {{post.title}}
+        </div>
+        <div class="card-body">
+            {{post.body}}
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <button 
+                (click)="onedit(post)"
+                mat-mini-fab color="primary" class="mr-2">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button
+                (click)="ondelete(post)"
+                mat-mini-fab color="accent">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+   </div>
+</ng-container>
+<ng-template #nopost>
+    <P class="alert alert-danger"> no postcards ... </P>
+</ng-template>

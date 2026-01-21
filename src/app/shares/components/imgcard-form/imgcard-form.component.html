@@ -1,0 +1,48 @@
+
+<form #imgForm="ngForm" class="mt-4" (ngSubmit)="onadd()">
+<div class="form-group">
+    <label for="title">title<sup>*</sup></label>
+    <input type="text" class="form-control"
+    required
+    ngModel
+    name="title"
+    #title="ngModel"
+    >
+    <strong class="text-danger" *ngif="title.touched && title.hasError('required')">
+        title is required field.... 
+    </strong>
+
+ <label for="imgUrl">imgUrl<sup>*</sup></label>
+    <input type="text" class="form-control"
+    required
+    ngModel
+    name="imgUrl"
+    #imgUrl="ngModel"
+    >
+    <strong class="text-danger" *ngif="imgUrl.touched && imgUrl.hasError('required')">
+        imgUrl is required field.... 
+    </strong>
+
+
+
+
+    <div>
+        <button *ngIf="!isInEditMode"
+            
+        mat-raised-button color="primary" class="w-100">
+            Add postcards
+        </button>
+        <button 
+        
+        *ngIf="isInEditMode"
+        (click)="onupdate()"
+         mat-raised-button color="accent" class="w-100" type="button">
+            Update postcards
+        </button>
+    </div>
+
+    
+</div>
+
+
+</form>
